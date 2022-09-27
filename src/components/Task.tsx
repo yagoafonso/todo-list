@@ -5,12 +5,13 @@ import styles from './Task.module.css';
 export function Task(){
   return (
     <div className={styles.contentTask}>
-      <input type="checkbox" className={styles.checkmark}/>
+        <div className={styles.round}>
+          <input type="checkbox" id="checkbox" />
+          <label htmlFor="checkbox"></label>
+        </div>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus 
-        laudantium harum assumenda tenetur officiis nesciunt beatae optio illum 
-        debitis autem.
       </p>
-      <Trash size={48}/>
+      <Trash size={24}/>
     </div>
   );
 }
