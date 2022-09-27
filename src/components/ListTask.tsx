@@ -14,7 +14,8 @@ export function ListTask(){
           Crie tarefas e organize seus itens a fazer
         </p>
       </div> */}
-      <Task />      
+      <Task />
+      <Task />    
     </section>
   );
 

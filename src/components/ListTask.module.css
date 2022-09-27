@@ -2,6 +2,9 @@
   width: 50%;
   margin-left: 25vw;
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
 }
 

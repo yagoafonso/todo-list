@@ -11,7 +11,10 @@ export function Task(){
         </div>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus 
       </p>
-      <Trash size={24}/>
+      <button title="Delete task">
+        <Trash size={24}/>
+      </button>
+
     </div>
   );
 }
