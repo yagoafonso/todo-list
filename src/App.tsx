@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Header } from './components/Header'
 import { HeaderTask } from './components/HeaderTask'
-import { ListTask } from './components/listTask'
+import { ListTask } from './components/ListTask'
 import { NewTask } from './components/NewTask'
 import { Task } from './components/Task'
 

@@ -1,11 +1,14 @@
 :root {
     --white: #FFFFFF;
+    --red: #FF0000;
 
     --purple-300: #8284FA;
+    --purple-500: #5E60CE;
 
     --blue-300: #4EA8DE;
     --blue-500: #1E6F9F;
 
+    --gray-100: #F2F2F2;
     --gray-300: #808080;
     --gray-400: #333333;
     --gray-500: #262626;
