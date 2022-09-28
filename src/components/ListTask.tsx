@@ -21,6 +21,10 @@ export function ListTask(){
   console.log(tasks);
   return(
     <section className={styles.contentTask}>
+<<<<<<< HEAD
+=======
+      {/* Div lista vazia */}
+>>>>>>> 15e817f3ccb02fdf35116cf39d3db09f2a771215
       {/* <div className={styles.contentEmpty}>
         <img src={ImgListEmpty} alt="" />
         <p>
@@ -28,8 +32,13 @@ export function ListTask(){
           Crie tarefas e organize seus itens a fazer
         </p>
       </div> */}
+<<<<<<< HEAD
       {tasks.map(content => { return <Task task={content.task}/> })}
 
+=======
+      <Task />
+      <Task />    
+>>>>>>> 15e817f3ccb02fdf35116cf39d3db09f2a771215
     </section>
   );
 
