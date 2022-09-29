@@ -1,19 +1,20 @@
 import { Trash } from "phosphor-react";
 import { useState } from "react";
-
 import styles from './Task.module.css';
 
-export interface TaskProps {
-  task: string;
+interface TaskProps {
+  task: ITask,
+  deleteTask(deleteTask: number):void,
 }
 
-export function Task({task} : TaskProps){
+export function Task({ task, deleteTask  } : TaskProps){
 
   const [isChecked, setIsChecked] = useState(false);
 
   function handleChangeChecked(){
       setIsChecked(!isChecked);
   }
+
   return (
     <div className={styles.task}>
       <input 
@@ -26,13 +27,13 @@ export function Task({task} : TaskProps){
       <div className={styles.contentTask}>
         {          
           isChecked ? (
-            <p><s>{task}</s></p>
+            <p><s>{task.nameTask}</s></p>
           ) : ( 
-            <p>{task}</p>
+            <p>{task.nameTask}</p>
           )
         }
       </div>
-      <button title="Deletar tarefa">
+      <button onClick={() => deleteTask(task.id)} title="Deletar tarefa">
         <Trash size={24}/>
       </button>
     </div>

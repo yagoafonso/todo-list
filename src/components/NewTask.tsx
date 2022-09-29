@@ -2,21 +2,20 @@ import React, { FormEvent, useState } from "react";
 import ImgListEmpty from '../assets/list-empty.svg';
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { Task } from "./Task";
+import { ITask } from "../Interfaces";
+
 
 import styles from './NewTask.module.css'
 
 
-export interface TaskProps {
-    idTask: number,
-    nameTask: string,
-  }
+
 
 export function NewTask(){
     const [task, setTask] = useState("")
 
-    const [todoList, setTodoList] = useState([])
+    const [todoList, setTodoList] = useState<ITask>([])
 
-    function handleCreateNewTask(event: FormEvent){
+    function handleCreateNewTask(event: FormEvent):void{
         event?.preventDefault();
         const idRandom = (num : number) => Math.floor(Math.random() * num)
 
@@ -27,7 +26,8 @@ export function NewTask(){
         setTask('');
     }
 
-    function deleteTask(taskToDelete: string){
+    function deleteTask(taskToDeleteById: number){
+        setTodoList(todoList.filter((taskName) => taskName.id !== taskToDeleteById ))
     }
 
     return(
@@ -65,8 +65,8 @@ export function NewTask(){
                         Crie tarefas e organize seus itens a fazer
                     </p>
                 </div> */}
-                {todoList.map(content => (
-                    <Task task={content.nameTask} />
+                {todoList.map((task, key) => (
+                    <Task key={key} task={task} deleteTask={deleteTask}/>
                 ))}
 
             </section>
