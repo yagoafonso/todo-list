@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 .task{
   width: 100%;
   height: 4.5rem;
-=======
-.contentTask{
-  width: 100%;
->>>>>>> 15e817f3ccb02fdf35116cf39d3db09f2a771215
   display: flex;
   align-items: center;
   padding: 16px;
@@ -24,7 +19,6 @@
   color: var(--gray-300);
 }
 
-<<<<<<< HEAD
 .task button:hover{
   color: var(--red);
 }
@@ -36,15 +30,4 @@
 
 .task + .task{
   margin-top: 1rem;
-=======
-.contentTask button{
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  color: var(--gray-300);
-}
-
-.contentTask button:hover{
-  color: var(--red);
->>>>>>> 15e817f3ccb02fdf35116cf39d3db09f2a771215
 }

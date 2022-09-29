@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { Header } from './components/Header'
-import { HeaderTask } from './components/HeaderTask'
-import { ListTask } from './components/ListTask'
 import { NewTask } from './components/NewTask'
 
 
@@ -15,8 +13,6 @@ export function App() {
     <div>
       <Header />
       <NewTask />
-      <HeaderTask />
-      <ListTask />
     </div>
   )
 }
