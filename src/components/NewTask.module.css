@@ -91,6 +91,10 @@
     justify-content: center;
     gap: 16px;
   }
+
+  .isContentEmpty{
+    display: none;
+  }
   
   .contentEmpty p strong{
     font-family: 'Inter', sans-serif;

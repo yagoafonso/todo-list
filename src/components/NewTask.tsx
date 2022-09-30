@@ -22,7 +22,7 @@ export function NewTask(){
             nameTask: task,
             isComplete: false,
         }
-        
+
         setTodoList([...todoList, newTask]);
 
         setTask('');
@@ -43,6 +43,10 @@ export function NewTask(){
     function deleteTask(taskToDeleteById: string){
         setTodoList(todoList.filter((taskName) => taskName.idTask !== taskToDeleteById ))
     }
+
+    const isTaskEmpty = todoList.length === 0;
+
+    console.log(`O campo está vazio ? ${isTaskEmpty}`)
     return(
 
         <div>
@@ -71,14 +75,14 @@ export function NewTask(){
                 <strong className={styles.titleTask}>Concluídas <span className={styles.countTask}>0</span></strong>
             </div>
             {/* SESSÃO LISTAGEM DAS TAREFAS */}
-            <section className={styles.contentTask}>
-                {/* <div className={styles.contentEmpty}>
+            <section className={styles.contentTask}>                
+                <div className={isTaskEmpty ? styles.contentEmpty : styles.isContentEmpty} >
                     <img src={ImgListEmpty} alt="" />
                     <p>
                         <strong>Você ainda não tem tarefas cadastradas</strong><br />
                         Crie tarefas e organize seus itens a fazer
                     </p>
-                </div> */}
+                </div>
                 {todoList.map((task, key) => (
                     <Task key={key} task={task} deleteTask={deleteTask} updateTask={handleAlterTask}/>
                 ))}
