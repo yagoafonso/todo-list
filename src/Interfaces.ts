@@ -1,5 +1,5 @@
 export interface ITask {
-  idTask: number,
+  idTask: string,
   nameTask: string,
   isComplete: boolean,
 }

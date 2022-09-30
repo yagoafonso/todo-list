@@ -27,7 +27,8 @@ export function NewTask(){
 
         setTask('');
     }
-    function completeTask(taskToUpdateById: number){
+
+    function handleAlterTask(taskToUpdateById: string){
         const editedTask = todoList.map(task => {
             if (task.idTask === taskToUpdateById){
                 return {
@@ -35,13 +36,13 @@ export function NewTask(){
                     isComplete: !task.isComplete
                 }
             }
+            return task
         })
-        setTask(editedTask)
+        setTodoList(editedTask)
     }
-    function deleteTask(taskToDeleteById: number){
+    function deleteTask(taskToDeleteById: string){
         setTodoList(todoList.filter((taskName) => taskName.idTask !== taskToDeleteById ))
     }
-    console.log(todoList)
     return(
 
         <div>
@@ -79,7 +80,7 @@ export function NewTask(){
                     </p>
                 </div> */}
                 {todoList.map((task, key) => (
-                    <Task key={key} task={task} deleteTask={deleteTask} updateTask={completeTask}/>
+                    <Task key={key} task={task} deleteTask={deleteTask} updateTask={handleAlterTask}/>
                 ))}
 
             </section>
