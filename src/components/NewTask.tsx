@@ -14,6 +14,8 @@ export function NewTask(){
 
     const [todoList, setTodoList] = useState<ITask[]>([])
 
+    const[countTotalTask, setcountTotalTask] = useState(0)
+
     function handleCreateNewTask(event: FormEvent):void{
         event?.preventDefault();
 
@@ -26,6 +28,7 @@ export function NewTask(){
         setTodoList([...todoList, newTask]);
 
         setTask('');
+        handleCountTotalTask();
     }
 
     function handleAlterTask(taskToUpdateById: string){
@@ -39,14 +42,28 @@ export function NewTask(){
             return task
         })
         setTodoList(editedTask)
+        countTaskComplete();
     }
+
+    function handleCountTotalTask(){
+        setcountTotalTask((state) => {
+            return state + 1
+        });
+    }
+
     function deleteTask(taskToDeleteById: string){
         setTodoList(todoList.filter((taskName) => taskName.idTask !== taskToDeleteById ))
+        setcountTotalTask((state) =>{ return state + 1 })
     }
 
+    function countTaskComplete(){
+        const countTaskComplete = todoList.reduce((counter, task) => task.isComplete === true ? counter += 1 : counter, 0)
+        
+    }
+
+    
     const isTaskEmpty = todoList.length === 0;
 
-    console.log(`O campo está vazio ? ${isTaskEmpty}`)
     return(
 
         <div>
@@ -71,7 +88,7 @@ export function NewTask(){
             </form>
             {/* INFORMAÇÕES DE TAREFAS CRIADAS E CONCLUÍDAS */}
             <div className={styles.taskInformation}>
-                <strong className={styles.titleTask}>Tarefas criadas <span className={styles.countTask}>0</span></strong>
+                <strong className={styles.titleTask}>Tarefas criadas <span className={styles.countTask}>{countTotalTask}</span></strong>
                 <strong className={styles.titleTask}>Concluídas <span className={styles.countTask}>0</span></strong>
             </div>
             {/* SESSÃO LISTAGEM DAS TAREFAS */}
