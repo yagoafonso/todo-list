@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import ImgListEmpty from '../assets/list-empty.svg';
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { Task } from "./Task";
@@ -8,29 +9,41 @@ import { ITask } from "../Interfaces";
 import styles from './NewTask.module.css'
 
 
-
-
 export function NewTask(){
     const [task, setTask] = useState("")
 
-    const [todoList, setTodoList] = useState<ITask>([])
+    const [todoList, setTodoList] = useState<ITask[]>([])
 
     function handleCreateNewTask(event: FormEvent):void{
         event?.preventDefault();
-        const idRandom = (num : number) => Math.floor(Math.random() * num)
 
-        const newTask = { id: idRandom(999), nameTask: task}
+        const newTask = { 
+            idTask: uuidv4(),
+            nameTask: task,
+            isComplete: false,
+        }
         
         setTodoList([...todoList, newTask]);
 
         setTask('');
     }
-
-    function deleteTask(taskToDeleteById: number){
-        setTodoList(todoList.filter((taskName) => taskName.id !== taskToDeleteById ))
+    function completeTask(taskToUpdateById: number){
+        const editedTask = todoList.map(task => {
+            if (task.idTask === taskToUpdateById){
+                return {
+                    ...task,
+                    isComplete: !task.isComplete
+                }
+            }
+        })
+        setTask(editedTask)
     }
-
+    function deleteTask(taskToDeleteById: number){
+        setTodoList(todoList.filter((taskName) => taskName.idTask !== taskToDeleteById ))
+    }
+    console.log(todoList)
     return(
+
         <div>
             {/* FORMULÁRIO */}
             <form onSubmit={handleCreateNewTask}  className={styles.taskForm}>
@@ -66,7 +79,7 @@ export function NewTask(){
                     </p>
                 </div> */}
                 {todoList.map((task, key) => (
-                    <Task key={key} task={task} deleteTask={deleteTask}/>
+                    <Task key={key} task={task} deleteTask={deleteTask} updateTask={completeTask}/>
                 ))}
 
             </section>
