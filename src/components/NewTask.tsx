@@ -42,7 +42,6 @@ export function NewTask(){
             return task
         })
         setTodoList(editedTask)
-        countTaskComplete();
     }
 
     function handleCountTotalTask(){
@@ -51,16 +50,13 @@ export function NewTask(){
         });
     }
 
+
     function deleteTask(taskToDeleteById: string){
         setTodoList(todoList.filter((taskName) => taskName.idTask !== taskToDeleteById ))
-        setcountTotalTask((state) =>{ return state + 1 })
+
     }
 
-    function countTaskComplete(){
-        const countTaskComplete = todoList.reduce((counter, task) => task.isComplete === true ? counter += 1 : counter, 0)
-        
-    }
-
+    const countTotalTaskComplete = todoList.filter((task) => task.isComplete).length;
     
     const isTaskEmpty = todoList.length === 0;
 
@@ -89,7 +85,7 @@ export function NewTask(){
             {/* INFORMAÇÕES DE TAREFAS CRIADAS E CONCLUÍDAS */}
             <div className={styles.taskInformation}>
                 <strong className={styles.titleTask}>Tarefas criadas <span className={styles.countTask}>{countTotalTask}</span></strong>
-                <strong className={styles.titleTask}>Concluídas <span className={styles.countTask}>0</span></strong>
+                <strong className={styles.titleTask}>Concluídas <span className={styles.countTask}>{countTotalTaskComplete}</span></strong>
             </div>
             {/* SESSÃO LISTAGEM DAS TAREFAS */}
             <section className={styles.contentTask}>                
