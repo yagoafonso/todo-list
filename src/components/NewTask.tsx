@@ -12,9 +12,25 @@ import styles from './NewTask.module.css'
 export function NewTask(){
     const [task, setTask] = useState("")
 
-    const [todoList, setTodoList] = useState<ITask[]>([])
+    const [todoList, setTodoList] = useState<ITask[]>([
+        {
+            idTask: 'teste123',
+            nameTask: 'Estudar React',
+            isComplete: false,  
+        },
+        {
+            idTask: 'teste124',
+            nameTask: 'Estudar Node',
+            isComplete: false,  
+        },
+        {
+            idTask: 'teste125',
+            nameTask: 'Estudar react-native',
+            isComplete: false,  
+        }
+    ])
 
-    const[countTotalTask, setcountTotalTask] = useState(0)
+    
 
     function handleCreateNewTask(event: FormEvent):void{
         event?.preventDefault();
@@ -43,6 +59,8 @@ export function NewTask(){
         })
         setTodoList(editedTask)
     }
+
+    const[countTotalTask, setcountTotalTask] = useState(0)
 
     function handleCountTotalTask(){
         setcountTotalTask((state) => {
