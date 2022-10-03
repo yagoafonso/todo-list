@@ -12,23 +12,7 @@ import styles from './NewTask.module.css'
 export function NewTask(){
     const [task, setTask] = useState("")
 
-    const [todoList, setTodoList] = useState<ITask[]>([
-        {
-            idTask: 'task1',
-            nameTask: 'Estudar React',
-            isComplete: false,  
-        },
-        {
-            idTask: 'task2',
-            nameTask: 'Estudar Node',
-            isComplete: false,  
-        },
-        {
-            idTask: 'task3',
-            nameTask: 'Estudar react-native',
-            isComplete: false,  
-        }
-    ])
+    const [todoList, setTodoList] = useState<ITask[]>([])
 
     
 

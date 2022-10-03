@@ -4,6 +4,7 @@
     margin-top: -30px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
 }
 
@@ -15,7 +16,7 @@
     height: 3.375rem;
     border-radius: 8px;
     padding: 16px;
-    color: var(--gray-300);
+    color: var(--gray-100);
     line-height: 1.4rem;
     overflow-y: hidden;
 }
@@ -112,3 +113,38 @@
     text-align: center;
   }
   
+  @media (max-width: 400px){
+    .taskForm{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin-left: 5vw;
+    }
+    .contentTask{
+      width:90%;
+      margin-left: 5vw;
+    }
+    .taskInformation {
+      width: 90%;
+      margin-left: 5vw;
+    }
+    
+  }
+  @media (max-width: 600px){
+    .taskForm{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin-left: 5vw;
+    }
+    .contentTask{
+      width:90%;
+      margin-left: 5vw;
+    }
+    .taskInformation {
+      width: 90%;
+      margin-left: 5vw;
+    }    
+}
