@@ -38,3 +38,7 @@ body .taskForm{
     align-items: center;
     justify-content: center;
 }
+:focus{
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--blue-500);
+}

@@ -14,17 +14,17 @@ export function NewTask(){
 
     const [todoList, setTodoList] = useState<ITask[]>([
         {
-            idTask: 'teste123',
+            idTask: 'task1',
             nameTask: 'Estudar React',
             isComplete: false,  
         },
         {
-            idTask: 'teste124',
+            idTask: 'task2',
             nameTask: 'Estudar Node',
             isComplete: false,  
         },
         {
-            idTask: 'teste125',
+            idTask: 'task3',
             nameTask: 'Estudar react-native',
             isComplete: false,  
         }
@@ -75,6 +75,8 @@ export function NewTask(){
     }
 
     const countTotalTaskComplete = todoList.filter((task) => task.isComplete).length;
+
+    const countTotalTaskCreated = todoList.length;
     
     const isTaskEmpty = todoList.length === 0;
 
@@ -90,8 +92,7 @@ export function NewTask(){
                     name="task"
                     value={task}
                     onChange={(event) => setTask(event.target.value)}
-                    required
-                    
+                    required                    
                 />
                 <div>                
                     <button type='submit'>
@@ -102,13 +103,16 @@ export function NewTask(){
             </form>
             {/* INFORMAÇÕES DE TAREFAS CRIADAS E CONCLUÍDAS */}
             <div className={styles.taskInformation}>
-                <strong className={styles.titleTask}>Tarefas criadas <span className={styles.countTask}>{countTotalTask}</span></strong>
-                <strong className={styles.titleTask}>Concluídas <span className={styles.countTask}>{countTotalTaskComplete}</span></strong>
+                <strong className={styles.titleTaskCreated}>Tarefas criadas <span className={styles.countTask}>{countTotalTaskCreated}</span></strong>
+                <strong className={styles.titleTaskComplete}>Concluídas <span className={styles.countTask}>
+                        {isTaskEmpty ? countTotalTaskComplete : countTotalTaskComplete + ' de ' +  countTotalTaskCreated }
+                    </span>
+                </strong>
             </div>
             {/* SESSÃO LISTAGEM DAS TAREFAS */}
             <section className={styles.contentTask}>                
                 <div className={isTaskEmpty ? styles.contentEmpty : styles.isContentEmpty} >
-                    <img src={ImgListEmpty} alt="" />
+                    <img src={ImgListEmpty} alt="Imagem de lista uma lista vazia" />
                     <p>
                         <strong>Você ainda não tem tarefas cadastradas</strong><br />
                         Crie tarefas e organize seus itens a fazer

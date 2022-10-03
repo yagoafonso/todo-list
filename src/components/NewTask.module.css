@@ -57,12 +57,20 @@
     align-items: space-between;
   
   }
-  .titleTask{
+  .titleTaskCreated{
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1rem;
     color: var(--blue-300);
+  }
+
+  .titleTaskComplete{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1rem;
+    color: var(--purple-500);
   }
   
   .countTask{
